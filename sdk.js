@@ -1,6 +1,10 @@
-/**
+/*
  * 诺诺网电子发票客户端
  * Created by gzj on 17/5/26.
+ *
+ * @copyright   Copyright (c) 2017 杭州云片网络科技有限公司 yunpian.com
+ * @link        https://yunpian.com
+ * @license     MIT License
  */
 const axios = require('axios')
 const crypto = require('crypto')
