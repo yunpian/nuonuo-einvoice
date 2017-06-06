@@ -22,7 +22,7 @@ class Client {
     this.encryptKey = encryptKey
   }
 
-  get _encryptKeyByte () { return new Buffer(self.ENCRYPT_KEY, 'base64') }
+  get _encryptKeyByte () { return new Buffer(this.encryptKey, 'base64') }
 
   get _cipherKey () { return this._encryptKeyByte.slice(0, 8) }
 
