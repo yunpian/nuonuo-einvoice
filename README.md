@@ -1,4 +1,4 @@
-# nuonuo-einvoice
+#nuonuo-einvoice
 诺诺网电子发票客户端
 
 ## 使用方法
@@ -7,10 +7,11 @@
 const {Client} = require('./sdk')
 
 const yourIdentify = '123456'
-const useTestEnv = true
+const serviceHost = 'http://your.service.host.com/'
+const encryptKey = 'your-encrypt-key'
 
 // 实例化客户端
-const client = new Client(yourIdentify, useTestEnv)
+const client = new Client(yourIdentify, serviceHost, encryptKey)
 
 // 创建电子发票
 const res = client.postInvoice({

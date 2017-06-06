@@ -1,30 +1,28 @@
-/*
+/**
  * 诺诺网电子发票客户端
- * Created by gzj on 17/5/26.
+ * Created by gzj on 17/5/26*
  *
  * @copyright   Copyright (c) 2017 杭州云片网络科技有限公司 yunpian.com
  * @link        https://yunpian.com
- * @license     MIT License
+ * @license     MIT License.
  */
 const axios = require('axios')
 const crypto = require('crypto')
 const qs = require('qs')
 
-const PRODUCT_ENV = 'http://nnfp.jss.com.cn'
-const TEST_ENV = 'http://115.236.64.124:18080'
-const ENCRYPT_KEY = 'LmMGStGtOpF4xNyvYt54EQ=='
-
 class Client {
   /**
    * @param identity {string} 企业标识
-   * @param isTest {boolean} 是否为测试环境
+   * @param host {string} 诺诺服务器地址
+   * @param encryptKey {string} 校验密钥
    */
-  constructor (identity, isTest = true) {
+  constructor (identity, host, encryptKey) {
     this.identity = identity
-    this.host = isTest ? TEST_ENV : PRODUCT_ENV
+    this.host = host
+    this.encryptKey = encryptKey
   }
 
-  get _encryptKeyByte () { return new Buffer(ENCRYPT_KEY, 'base64') }
+  get _encryptKeyByte () { return new Buffer(self.ENCRYPT_KEY, 'base64') }
 
   get _cipherKey () { return this._encryptKeyByte.slice(0, 8) }
 
